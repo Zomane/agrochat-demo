@@ -1,0 +1,9 @@
+.git
+.idea
+.venv
+__pycache__
+*.py[cod]
+*.log
+.env
+static/user_images/*
+tests

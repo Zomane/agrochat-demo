@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroChat Demo — демонстрационный интерфейс агрономического чат-помощника с безопасным mock-сервисом вместо недоступной AI-модели.">
+    <meta name="application-name" content="AgroChat Demo">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#f4f8f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101817" media="(prefers-color-scheme: dark)">
+    <meta property="og:title" content="AgroChat Demo">
+    <meta property="og:description" content="Демонстрация интерфейса агрономического чат-помощника. Ответы создаются mock-сервисом.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="AgroChat Demo">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AgroChat Demo">
+    <meta name="twitter:description" content="Демонстрация интерфейса агрономического чат-помощника с mock-ответами.">
+    <title>AgroChat Demo</title>
+    <link rel="icon" href="static/img/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="manifest" href="static/site.webmanifest">
+    <link rel="stylesheet" href="static/css/styles.css?v=20260621-2">
+</head>
+<body>
+    <a class="skip-link" href="#textInput">Перейти к форме сообщения</a>
+    <header class="app-header">
+        <div class="brand-block">
+            <div class="brand-line">
+                <strong>AgroChat</strong>
+                <span class="demo-badge">Demo</span>
+            </div>
+            <p id="demo-description">Ответы создаёт mock-сервис. Настоящая AI-модель в этой версии не подключена.</p>
+        </div>
+        <div id="icons">
+            <button id="infoWrapper" class="icon-button" type="button" aria-label="Открыть меню" aria-expanded="false">
+                <img id="info-ico" src="static/resources/info.svg" alt="">
+            </button>
+            <button class="dark-theme icon-button" type="button" aria-label="Переключить тему"></button>
+        </div>
+        <nav id="dialogueInfoWrapper" aria-label="Дополнительное меню" hidden>
+            <a href="https://betaren.ru/">
+                <img src="static/resources/back-arrow.svg" alt="">
+                <span>Вернуться на сайт</span>
+            </a>
+            <a href="https://betaren.ru/about/">
+                <img src="static/resources/about-icon.svg" alt="">
+                <span>О нас</span>
+            </a>
+            <a href="static/resources/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">
+                <img src="static/resources/lock.svg" alt="">
+                <span>Политика конфиденциальности</span>
+            </a>
+            <button id="clearChatButton" type="button">
+                <img src="static/resources/trash.svg" alt="">
+                <span>Очистить чат</span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="scroller" aria-describedby="demo-description">
+        <section class="demo-intro" aria-labelledby="demo-title">
+            <h1 id="demo-title">Демонстрация интерфейса AgroChat</h1>
+            <p>Попробуйте один из примеров или задайте собственный вопрос.</p>
+            <div class="example-list" aria-label="Примеры вопросов">
+                <button type="button" data-example="Почему у растений желтеют листья?">Почему желтеют листья?</button>
+                <button type="button" data-example="Как подготовить почву к посадке?">Как подготовить почву?</button>
+                <button type="button" data-example="Какие признаки нехватки азота?">Признаки нехватки азота</button>
+            </div>
+        </section>
+
+        <section class="chatbot__overview" id="chatbotBox" aria-label="История диалога">
+            <ul class="chatlist" id="chatlist" aria-live="polite" aria-busy="false"></ul>
+        </section>
+
+        <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" hidden>
+            <div id="modal-content">
+                <h2 id="privacy-title">Используя ресурс, вы подтверждаете согласие с <a href="static/resources/privacy-policy.pdf" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>.</h2>
+                <button id="acceptBtn" type="button">Принять</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="bodyWrapper">
+        <footer>
+            <form id="chatForm" aria-describedby="formError requestStatus" novalidate>
+                <div class="image-preview" id="imagePreview" hidden>
+                    <img id="imagePreviewContent" alt="Предпросмотр выбранного изображения">
+                    <span id="imagePreviewName"></span>
+                    <button id="removeImageButton" type="button" aria-label="Удалить выбранное изображение">Удалить</button>
+                </div>
+                <div id="inputBar">
+                    <label for="upload" class="attach-button">Выбрать изображение</label>
+                    <input type="file" class="send_img" id="upload" accept="image/jpeg,image/png,image/webp">
+                    <label class="visually-hidden" for="textInput">Сообщение для AgroChat</label>
+                    <textarea placeholder="Напишите запрос" class="chatbox" id="textInput" name="user_text" maxlength="1000" rows="1" aria-describedby="formError"></textarea>
+                    <button id="sendBtn" type="submit" aria-label="Отправить сообщение">
+                        <img src="static/resources/send-arrow.svg" alt="">
+                    </button>
+                    <button id="stopButton" type="button" hidden>Остановить</button>
+                </div>
+                <p class="form-error" id="formError" role="alert"></p>
+                <p class="request-status" id="requestStatus" role="status" aria-live="polite"></p>
+            </form>
+            <div class="disclaimer">AgroChat Demo может ошибаться. Не используйте ответы как профессиональную агрономическую рекомендацию.</div>
+        </footer>
+    </div>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+    <script type="module" src="static/js/main.js?v=20260621-3"></script>
+</body>
+</html>

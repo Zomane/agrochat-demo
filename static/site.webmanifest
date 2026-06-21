@@ -1,0 +1,19 @@
+{
+  "name": "AgroChat Demo",
+  "short_name": "AgroChat",
+  "description": "Демонстрационный интерфейс агрономического чат-помощника с mock-ответами.",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f8f7",
+  "theme_color": "#4da8a9",
+  "icons": [
+    {
+      "src": "img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
