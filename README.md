@@ -25,7 +25,10 @@ AI-модель исходного проекта размещалась на з
 
 ## Screenshots
 
-Скриншоты интерфейса будут добавлены позже.
+<img width="2510" height="1315" alt="image" src="https://github.com/user-attachments/assets/2ac250ea-1f7f-4fc0-85a1-d0e0a51e5b6e" />
+<img width="2511" height="1325" alt="image" src="https://github.com/user-attachments/assets/fc15c992-513d-4922-8c39-fb25ce81f66f" />
+<img width="2511" height="1320" alt="image" src="https://github.com/user-attachments/assets/03750744-521a-4d97-ac97-08adbeb444a0" />
+<img width="2512" height="1318" alt="image" src="https://github.com/user-attachments/assets/64aae3dc-e066-4b4a-adf7-24cf4fd1dc2d" />
 
 ## Features
 
