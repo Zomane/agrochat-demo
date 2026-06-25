@@ -19,7 +19,7 @@ AI-модель исходного проекта размещалась на з
 
 ## Demo
 
-- Live: [agrochat-demo.goodwaitik.tech](https://agrochat-demo.goodwaitik.tech/)
+- Live: https://agrochat-demo.goodwaitik.tech/ (если сайт не загружается, попробуйте включить впн)
 - Backend/API: [healthcheck](https://agrochat-demo.goodwaitik.tech/health)
 - Repository: [github.com/Zomane/agrochat-demo](https://github.com/Zomane/agrochat-demo)
 
